@@ -1,0 +1,22 @@
+{
+  "name": "refast-demo",
+  "author": "fengwei",
+  "version": "0.2.7",
+  "description": "refast数据流方案的示例",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:recore/refast-demo.git"
+  },
+  "scripts": {
+    "start": "nowa server -o",
+    "build": "nowa build"
+  },
+  "homepage": "",
+  "license": "MIT",
+  "dependencies": {
+    "i18n-helper": "~1.1.1",
+    "lodash.assign": "^4.2.0",
+    "refast": "latest",
+    "uxcore": "latest"
+  }
+}
