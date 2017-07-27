@@ -13,7 +13,7 @@ class PageDemo extends Component {
   }
 
   handleChange(e) {
-    this.execute('updateState', { workNo: e.target.value });
+    this.dispatch('updateState', { workNo: e.target.value });
   }
 
   render() {

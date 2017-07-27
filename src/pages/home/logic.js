@@ -1,5 +1,3 @@
-import assign from 'lodash.assign';
-
 export default {
   defaults() {
     return {
@@ -17,7 +15,7 @@ export default {
     return data;
   },
 
-  // 前面的参数fromExec是从 execute 的时候传过来的
+  // 前面的参数fromExec是从 dispatch 的时候传过来的
   // 如果updateState有返回值
   // 则后面参数就是从fromUpdateState传过来的
   async search(ctx, fromExec = {}, fromUpdateState) {
@@ -37,12 +35,12 @@ export default {
         message.success(`${fromExec.workNo}请求成功！`);
       }
 
-      state = assign(users, { empty });
+      state = Object.assign(users, { empty });
     } catch (e) {
       message.error(`${fromExec.workNo}请求出错啦！`);
       state = { users: [], empty: false };
     }
 
-    setState(assign(state, { loading: false }));
+    setState(Object.assign(state, { loading: false }));
   },
 };

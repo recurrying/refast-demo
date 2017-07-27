@@ -1,5 +1,3 @@
-import assign from 'lodash.assign';
-
 export default {
   // defaults 返回一个对象，用于初始化页面state
   defaults() {
@@ -33,7 +31,7 @@ export default {
         message.success(`${params.workNo}请求成功！`);
       }
 
-      state = assign(users, { empty });
+      state = Object.assign(users, { empty });
     } catch (e) {
       message.error(`${params.workNo}请求出错啦！`);
       state = { users: [], empty: false };

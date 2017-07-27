@@ -3,31 +3,27 @@
   "options": {
     "type": "uxcore",
     "template": "https://github.com/nowa-webpack/template-uxcore/archive/v4.zip",
+    "lazyload": true,
+    "loose": true,
     "npm": "tnpm",
     "vars": {
       "__LOCAL__": true
     },
     "buildvars": {
-      "__LOCAL__": [false]
+      "__LOCAL__": [
+        false
+      ]
     },
     "pages": false,
     "externals": {
-      "natty-fetch": "var nattyFetch",
       "react": "var React",
       "react-dom": "var ReactDOM",
-      "react-router": "var ReactRouter",
-      "uxcore": "var Uxcore",
-      "lodash": "var _"
+      "react-router": "var ReactRouter"
     },
-      "injects": [
-      "uxcore/assets/iconfont.css",
-      "uxcore/assets/orange.css",
-      "uxcore"
-    ],
     "alias": {
-      "components":"components",
-      "db":"app/db.js",
-      "variables":"app/variables.js"
+      "components": "components",
+      "db": "app/db.js",
+      "variables": "app/variables.js"
     },
     "mockapi": {
       "/mock/user/query.json": "mock/user/query.js"

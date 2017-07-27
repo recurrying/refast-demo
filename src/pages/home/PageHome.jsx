@@ -18,7 +18,7 @@ class PageHome extends Component {
   }
 
   updateAndSearch(val) {
-    this.execute(['updateState', 'search'], val);
+    this.dispatch(['updateState', 'search'], val);
   }
 
   render() {

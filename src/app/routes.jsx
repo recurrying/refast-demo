@@ -38,23 +38,21 @@ const App = ({ children, location, routes }) => (
 
 
 const rootRoute = {
-  childRoutes: [{
-    path: '/',
-    component: App,
-    // 这里可以设置首页跳转的地址
-    indexRoute: { onEnter: (nextState, replace) => replace('/home') },
-    childRoutes: [
-      // 新建页面时，请注意更新此处的路由
-      homeRoute,
-      demoRoute,
-      // error因为是泛匹配，所以要放到下面
-      // 不然会覆盖前面的
-      errorRoute,
-    ],
-  }],
+  path: '/',
+  component: App,
+  // 这里可以设置首页跳转的地址
+  indexRoute: { onEnter: (nextState, replace) => replace('/home') },
+  childRoutes: [
+    // 新建页面时，请注意更新此处的路由
+    homeRoute,
+    demoRoute,
+    // error因为是泛匹配，所以要放到下面
+    // 不然会覆盖前面的
+    errorRoute,
+  ],
 };
 
-// 这里使用setup来配置noflux
+// 这里使用setup来配置 Refast
 setup('fn', {
   history: hashHistory,
 });
