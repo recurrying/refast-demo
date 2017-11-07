@@ -1,33 +1,3 @@
-# 这里是refast的示例
+# Examples
 
-支持版本 refast@^1.2.0
-
-## 环境准备
-
-本示例需要[nowa](https://github.com/nowa-webpack/nowa)的支持，请参考[文档](http://nowa-webpack.github.io/docs/an_zhuang.html)安装。
-
-## 目录结构
-
-```
-.
-├── abc.json  ------------------------- 项目构建配置文件
-├── favicon.ico  ---------------------- 页面图标
-├── html  ----------------------------- html目录
-│   └── index.html  ------------------- 入口页面
-├── package.json  --------------------- 项目配置
-├── README.md  ------------------------ 说明文件
-└── src  ------------------------------ 源码目录
-    ├── app  -------------------------- 项目级代码
-    │   ├── app.js  ------------------- 项目级脚本逻辑
-    │   ├── app.less  ----------------- 全局样式
-    ├── components  ------------------- 业务模块集合目录
-    └── pages  ------------------------ 页面集合目录
-        └── demo  --------------------- 某一个页面
-            ├── index.js  ------------- 页面入口文件
-            ├── logic.js  -----------   事件列表
-            ├── PageDemo.js  ---------- 页面视图逻辑
-            └── PageDemo.less  -------- 页面样式
-```
-## 运行示例
-
-通过`npm install`安装依赖之后，直接输入`nowa server -o`就可以运行了。
+Read the descriptions for every example on the [Examples](../docs/introduction/Examples.md) documentation page.
