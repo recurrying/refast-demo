@@ -1,5 +1,5 @@
 {
-  "name": "async-with-logic-render",
+  "name": "async",
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
@@ -9,7 +9,8 @@
     "prop-types": "^15.5.10",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "refast": "~2.1.0"
+    "refast": "~2.1.0",
+    "refast-logic-render": "~2.2.1"
   },
   "scripts": {
     "start": "react-scripts start",

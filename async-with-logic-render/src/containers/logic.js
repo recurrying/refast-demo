@@ -19,7 +19,7 @@ export default {
     // we can get `process.env` here,
     // caused env has been defined by `Refast.use`
     console.log('env.NODE_ENV info from logic: ', env.NODE_ENV);
-
+    console.log('fetch parameters:', fetchParams);
     setState({ isFetching: true });
     const response = await fn.receivePosts(selectedReddit);
     setState({

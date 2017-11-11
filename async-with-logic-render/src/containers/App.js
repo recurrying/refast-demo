@@ -1,10 +1,20 @@
 import React from 'react';
 import { Component } from 'refast';
+import LogicRender, { connect } from 'refast-logic-render';
 import logic from './logic';
 import Picker from '../components/Picker';
 import Posts from '../components/Posts';
 
-export default class App extends Component {
+const Loading = () => <div >Loading</div>;
+const Empty = () => <div>No Data</div>;
+
+LogicRender.defaultProps = {
+  ...LogicRender.defaultProps,
+  Loading,
+  Empty,
+};
+
+class App extends Component {
 
   constructor(props) {
     super(props, logic);
@@ -13,15 +23,13 @@ export default class App extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  componentDidMount() {
-    this.dispatch('fetchPosts');
-  }
   handleRefresh() {
     const { selectedReddit } = this.state;
     this.dispatch('fetchPosts', { selectedReddit });
   }
+
   handleChange(selectedReddit) {
-    this.dispatch(['update', 'fetchPosts'], { selectedReddit });
+    this.dispatch(['update'], { selectedReddit });
   }
 
   render() {
@@ -34,26 +42,20 @@ export default class App extends Component {
           onChange={this.handleChange}
           options={['reactjs', 'frontend']}
         />
-        <p>
-          {lastUpdated &&
-            <span>
-              Last updated at {new Date(lastUpdated).toLocaleTimeString()}.
-              {' '}
-            </span>
-          }
-          {!isFetching &&
-            <button onClick={this.handleRefresh}>
-              Refresh
-            </button>
-          }
-        </p>
-        {isEmpty
-          ? (isFetching ? <h2>Loading...</h2> : <h2>Empty.</h2>)
-          : <div style={{ opacity: isFetching ? 0.5 : 1 }}>
-            <Posts posts={posts} />
-          </div>
-        }
+        <LogicRender isLoading={isFetching}>
+          Last updated at {new Date(lastUpdated).toLocaleTimeString()}.
+          <button onClick={this.handleRefresh}>Refresh</button>
+        </LogicRender>
+        <Posts
+          posts={posts}
+          isEmpty={isEmpty}
+          selectedReddit={selectedReddit}
+          isLoading={isFetching}
+        />
       </div>
     );
   }
 }
+
+
+export default connect(App);
