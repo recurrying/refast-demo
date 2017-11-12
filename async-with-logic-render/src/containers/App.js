@@ -5,15 +5,6 @@ import logic from './logic';
 import Picker from '../components/Picker';
 import Posts from '../components/Posts';
 
-const Loading = () => <div >Loading</div>;
-const Empty = () => <div>No Data</div>;
-
-LogicRender.defaultProps = {
-  ...LogicRender.defaultProps,
-  Loading,
-  Empty,
-};
-
 class App extends Component {
 
   constructor(props) {
@@ -42,7 +33,7 @@ class App extends Component {
           onChange={this.handleChange}
           options={['reactjs', 'frontend']}
         />
-        <LogicRender isLoading={isFetching}>
+        <LogicRender isLoading={isFetching} yourCustomProps="Refresh button is hiden while  fetching">
           Last updated at {new Date(lastUpdated).toLocaleTimeString()}.
           <button onClick={this.handleRefresh}>Refresh</button>
         </LogicRender>
