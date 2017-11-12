@@ -8,7 +8,7 @@ Refast.use('fn', {
   receivePosts: reddit => fetch(`https://www.reddit.com/r/${reddit}.json`).then(response => response.json()),
 });
 
-// Customize LogicRender of yourself's
+//  可以定制化你自己的 Loading 或者 Empty 视图
 const Loading = (props) => {
   const { yourCustomProps } = props;
   return (

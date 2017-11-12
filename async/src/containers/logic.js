@@ -3,7 +3,7 @@ function getPosts(response) {
 }
 
 export default {
-  defaults(props) {
+  defaults() {
     return {
       selectedReddit: 'reactjs',
       posts: [],
@@ -12,12 +12,11 @@ export default {
     };
   },
   update({ setState }, state) {
-    setState(state)
+    setState(state);
   },
   async fetchPosts({ fn, setState, env }, fetchParams = {}) {
     const { selectedReddit = 'reactjs' } = fetchParams;
-    // we can get `process.env` here,
-    // caused env has been defined by `Refast.use`
+    // 在这里可以拿到通过 `Refast.use` 设置的值
     console.log('env.NODE_ENV info from logic: ', env.NODE_ENV);
 
     setState({ isFetching: true });
@@ -27,5 +26,5 @@ export default {
       posts: getPosts(response),
       lastUpdated: Date.now(),
     });
-  }
-}
+  },
+};
